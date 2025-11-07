@@ -1,5 +1,12 @@
 {
     "navigationFallback": {
         "rewrite": "/index.html"
-    }
+    },
+    "routes": [
+        {
+            "route": "/api/seinfeldGPT",
+            "allowedRoles": ["anonymous"],
+            "rewrite": "http://backend.ebedes.com/seinfeldGPT"
+        }
+    ]
 }

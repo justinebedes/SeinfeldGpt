@@ -4,9 +4,25 @@ function App() {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    fetch('http://backend.ebedes.com/seinfeldGPT')
-      .then(response => response.text())
-      .then(text => setData(text))
+    fetch('/api/seinfeldGPT')
+      .then(response => {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let result = '';
+
+        function read() {
+          return reader.read().then(({ done, value }) => {
+            if (done) {
+              return;
+            }
+            result += decoder.decode(value, { stream: true });
+            setData(result);
+            return read();
+          });
+        }
+
+        return read();
+      })
       .catch(error => setData('Error: ' + error.message));
   }, []);
 
