@@ -12,6 +12,6 @@
             "route": "/api/seinfeldGPT2",
             "allowedRoles": ["anonymous"],
             "rewrite": "http://backend.ebedes.com/seinfeldGPT2"
-        },
+        }
     ]
 }
