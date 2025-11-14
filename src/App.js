@@ -4,8 +4,8 @@ function App() {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    console.log('Fetching /api/seinfeldGPT2');
-    fetch('/api/seinfeldGPT2')
+    console.log('Fetching from seinfeldGPT2');
+    fetch('http://backend.ebedes.com/seinfeldGPT2')
       .then(response => {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
