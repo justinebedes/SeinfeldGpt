@@ -19,6 +19,8 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Ensure build directory exists
+        run: mkdir -p build
       - name: Copy staticwebapp.config.json to build folder
         run: cp staticwebapp.config.json build/
       - name: Build And Deploy
