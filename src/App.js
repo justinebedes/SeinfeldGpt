@@ -27,7 +27,11 @@ function App() {
       .catch(error => setData('Error: ' + error.message));
   }, []);
 
-  return <div>{data ? data : 'Loading...'}</div>;
+  return (
+    <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+      {data ? data : 'Loading...'}
+    </pre>
+  );
 }
 
 export default App;

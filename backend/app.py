@@ -8,7 +8,8 @@ from tiktoken import get_encoding
 app = Flask(__name__)
 CORS(app, origins=[
     "http://localhost:3000",
-    "https://icy-dune-00ee9d300.3.azurestaticapps.net/"
+    "https://icy-dune-00ee9d300.3.azurestaticapps.net/",
+    "https://ebedes.com"
 ])
 
 # Load model once at startup
@@ -63,6 +64,5 @@ def seinfeld_gpt2():
                 yield text
     return Response(generate_stream(), mimetype='text/plain')
 
-
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=443, ssl_context="adhoc")
+    app.run(host="0.0.0.0", port=443, ssl_context=("backend.ebedes.com-chain.pem", "backend.ebedes.com-key.pem"))
