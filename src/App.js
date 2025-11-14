@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     console.log('Fetching from seinfeldGPT2');
-    fetch('http://backend.ebedes.com/seinfeldGPT2')
+    fetch('https://backend.ebedes.com/seinfeldGPT2')
       .then(response => {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();

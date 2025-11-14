@@ -6,7 +6,10 @@ from train_gpt2 import GPT, GPTConfig
 from tiktoken import get_encoding
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])  # or origins="*"
+CORS(app, origins=[
+    "http://localhost:3000",
+    "https://icy-dune-00ee9d300.3.azurestaticapps.net/"
+])
 
 # Load model once at startup
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -61,5 +64,5 @@ def seinfeld_gpt2():
     return Response(generate_stream(), mimetype='text/plain')
 
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=443, ssl_context="adhoc")
